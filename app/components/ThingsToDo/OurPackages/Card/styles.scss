@@ -1,0 +1,159 @@
+.pk212Card32 {
+  padding-bottom: 20px;
+  padding-inline-end: 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px; /* Minimum height for the card */
+  height: 100%; /* Make sure the card takes up 100% of the available height */
+  flex-grow: 1; /* Ensure card expands to fill available space */
+  justify-content: space-between; /* Ensure space is distributed evenly */
+  align-items: stretch; /* Stretch the card to fill the height */
+  
+  @media (max-width: 560px) {
+    margin-inline-end: 0;
+    padding-inline-end: 10px;
+  }
+
+  /* Image Wrapper */
+  .ImgThumb {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    height: 300px; /* Fixed height for all images */
+    flex-shrink: 0; /* Prevent the image from shrinking */
+    
+    .featured {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background-color: #fff;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 12px; /* Reduced font size */
+      line-height: 18px;
+      z-index: 3;
+      padding: 4px 10px; /* Reduced padding */
+    }
+
+    img {
+      z-index: 2;
+      position: relative;
+      width: 100%;
+      height: 100%; /* Ensure the image takes up the full container height */
+      border-radius: 16px;
+      object-fit: cover; /* Make sure image is covered fully without stretching */
+    }
+  }
+
+  /* Card Details */
+  .detials39 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 160px;
+    flex-grow: 1; /* Allow details to grow and fill remaining space */
+    display: flex;
+    align-items: stretch; /* Stretch the details to fit the remaining height */
+    
+    /* Heading (Title) Style */
+    .sec-title {
+      font-size: 18px; /* Reduced font size for heading */
+      line-height: 1.3; /* Adjusted line height */
+      font-weight: bold;
+    }
+
+    /* Paragraph Style */
+    p {
+      margin-top: 8px;
+      line-height: 1.3; /* Reduced line height for the paragraph */
+      font-size: 14px; /* Reduced font size */
+      max-height: 80px; /* Limit paragraph height */
+      overflow: hidden; /* Hide overflowing text */
+      text-overflow: ellipsis; /* Add ellipsis (...) if the text overflows */
+    }
+  }
+
+  /* Buttons Section */
+  .reservieBtns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px; /* Reduced gap between buttons */
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    align-self: stretch; /* Stretch button section to fit height */
+    
+    button {
+      flex: 1;
+      padding: 10px 16px; /* Reduced button padding */
+      font-size: 14px; /* Reduced font size for buttons */
+    }
+  }
+
+  /* Button Styles */
+  .btnNl-primary-j {
+    background-color: var(--themePrimary);
+    color: var(--themeSecondary);
+    border-radius: 50px;
+    padding: 10px 18px; /* Reduced padding */
+    border: 1px solid var(--themePrimary);
+    transition: ease-in-out 0.3s;
+    font-size: 14px; /* Reduced font size */
+  }
+
+  .btnNl-secondary-j {
+    background-color: transparent;
+    color: #000;
+    border-radius: 50px;
+    padding: 10px 18px; /* Reduced padding */
+    border: 1px solid var(--themePrimary);
+    transition: ease-in-out 0.3s;
+    font-size: 14px; /* Reduced font size */
+  }
+
+  /* Arrow Icons */
+  .iconsvg {
+    transition: ease-in-out 0.3s;
+  }
+
+  .activeCard .iconsvg {
+    transition: ease-in-out 0.3s;
+    transform: rotate(180deg);
+  }
+}
+
+/* Slider Adjustments */
+.slick-slider {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-basis: 100%;
+  flex-grow: 1;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 560px) {
+  .pk212Card32 {
+    padding-bottom: 20px;
+    padding-inline-end: 10px;
+  }
+
+  .ImgThumb {
+    height: 250px;
+  }
+
+  .detials39 {
+    min-height: 120px;
+  }
+
+  .reservieBtns {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

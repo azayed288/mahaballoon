@@ -1,0 +1,17 @@
+{
+    "redirects": [
+      {
+        "source": "/(.*)",
+        "has": [
+          {
+            "type": "host",
+            "value": "www.mahaballoonadventures.ae"
+          }
+        ],
+        "destination": "https://mahaballoonadventures.ae/$1",
+        "permanent": true
+      }
+    
+    ]
+  }
+  

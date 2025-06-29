@@ -1,0 +1,137 @@
+.pkCard32 {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column by default */
+  grid-template-rows: auto; /* Automatic row sizing */
+  gap: 20px; /* Add spacing between elements */
+  margin-inline-end: 40px;
+  min-height: 500px;
+  height: auto;
+  padding-bottom: 20px;
+  overflow: hidden;
+
+  /* Responsive adjustments */
+  @media (max-width: 1100px) {
+    min-height: 400px;
+  }
+
+  @media (max-width: 560px) {
+    margin-inline-end: 10px;
+  }
+
+  /* Image thumbnail styling */
+  .ImgThumb {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    grid-column: 1 / -1; /* Make image span the whole card */
+
+    .featured {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background-color: #fff;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 21px;
+      z-index: 3;
+      padding: 4px 12px;
+    }
+
+    img {
+      width: 100%;
+      height: 250px;
+      border-radius: 16px;
+      object-fit: cover;
+      z-index: 2;
+      position: relative;
+    }
+  }
+
+  /* Details section styling */
+  .detailsSec {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    flex-grow: 1;
+    padding: 16px;
+    min-height: 200px;
+    overflow: hidden;
+  }
+
+  .card-title {
+    margin-top: 16px;
+    font-size: 1.2rem;
+  }
+
+  /* Tag line */
+  .tag-line {
+    font-size: 1rem;
+  }
+
+  /* Paragraph and text styling */
+  .para {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    white-space: normal; /* Allow multi-line text */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Clamp at 3 lines */
+    -webkit-box-orient: vertical;
+  }
+
+  /* Bold styling for labels like Time, Location */
+  .bds {
+    font-weight: 600;
+  }
+
+  /* Padding for buttons and labels */
+  .pds {
+    padding: 12px 24px;
+  }
+
+  /* Right margin for buttons */
+  .mrs {
+    margin-inline-end: 16px;
+  }
+
+  /* Button styling */
+  .btnNl-primary-j,
+  .btnNl-secondary-j {
+    background-color: var(--themePrimary);
+    color: var(--themeSecondary);
+    border-radius: 50px;
+    padding: 14px 24px;
+    border: 1px solid var(--themePrimary);
+    transition: ease-in-out 0.3s;
+  }
+
+  .mt-3 {
+    margin-top: 20px;
+  }
+
+  .btnNl {
+    margin-top: 10px;
+  }
+}
+
+/* Responsive Adjustments for smaller screens */
+@media (max-width: 560px) {
+  .pkCard32 {
+    grid-template-columns: 1fr; /* Make card items stack on small screens */
+    min-height: 400px;
+  }
+
+  .ImgThumb img {
+    height: 220px;
+  }
+
+  .detailsSec {
+    padding: 10px;
+  }
+
+  .pds {
+    padding: 10px 15px;
+  }
+}

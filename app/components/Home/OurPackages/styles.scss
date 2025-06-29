@@ -1,0 +1,17 @@
+.OurPackagesk312 {
+  .sliderArrows {
+    text-align: end;
+    @media (max-width: 990px) {
+      text-align: end;
+    }
+    @media (max-width: 580px) {
+      display: none;
+    }
+  }
+  .main-title{
+    @media (max-width: 580px) {
+      font-size: 1.3rem;
+    }
+  }
+
+}

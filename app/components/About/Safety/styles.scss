@@ -1,0 +1,160 @@
+.safetyMasuei2139 {
+  .accordion {
+    width: 100%;
+  }
+
+  .arB {
+    .accordion-button::after {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  .accordion-button:not(.collapsed) {
+    box-shadow: none;
+    background-color: transparent;
+    color: #000;
+  }
+
+  .accordion-button {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .accordion-button .title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+  }
+
+  .safetyItem {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 24px 0;
+  }
+
+  .safetyNo {
+    color: var(--themePrimary);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33.6px;
+  }
+
+  .heading {
+    margin-bottom: 40px;
+    text-align: center;
+    @media (max-width: 560px) {
+      text-align: start;
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%; /* Ensure wrapper takes full available height */
+    min-height: 380px; /* Set a minimum height */
+    background-image: url("https://d3nt41cjjw3im8.cloudfront.net/assets/New/WhyUs/Safety Measures.webp");
+    background-position: center center; /* Ensure the image is centered */
+    background-size: cover; /* Ensure the image scales to cover the area */
+    background-repeat: no-repeat;
+    border-radius: 24px;
+
+    @media (max-width: 560px) {
+      min-height: 380px; /* Maintain a minimum height for small screens */
+      background-position: center center; /* Adjust image position on smaller screens */
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      max-height: max-content;
+      object-fit: cover; /* Ensure the image fully covers the container */
+      object-position: center center; /* Center the image */
+      border-radius: 24px;
+
+      @media (max-width: 560px) {
+        min-height: 380px;
+      }
+    }
+  }
+}
+
+
+// .safetyMasuei2139 {
+//   .accordion {
+//     width: 100%;
+//   }
+//   .arB {
+//     .accordion-button::after {
+//       margin-left: 0;
+//       margin-right: auto;
+//     }
+//   }
+//   .accordion-button:not(.collapsed) {
+//     box-shadow: none;
+//     background-color: transparent;
+//     color: #000;
+//   }
+//   .accordion-button {
+//     padding-top: 0;
+//     padding-bottom: 0;
+//   }
+//   .accordion-button .title {
+//     font-weight: 700;
+//     font-size: 24px;
+//     line-height: 33px;
+//   }
+
+//   .safetyItem {
+//     display: flex;
+//     flex-direction: row;
+//     gap: 16px;
+//     align-items: flex-start;
+//     justify-content: flex-start;
+//     margin: 24px 0;
+//   }
+//   .safetyNo {
+//     color: var(--themePrimary);
+//     font-weight: 700;
+//     font-size: 24px;
+//     line-height: 33.6px;
+//     // padding-top: 18px;
+//   }
+//   .heading {
+//     margin-bottom: 40px;
+//     text-align: center;
+//     @media (max-width: 560px) {
+//       text-align: start;
+//     }
+//   }
+
+//   .wrapper {
+//     width: 100%;
+//     height: 100%;
+//     // height: auto;
+//     // max-height: 380px;
+//     background-image: url("https://d3nt41cjjw3im8.cloudfront.net/assets/New/WhyUs/Safety Measures.webp");
+//     background-position: 40% 100%;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     border-radius: 24px;
+//     @media (max-width: 560px) {
+//       min-height: 380px;
+//       background-position: 100% 30%;
+//     }
+
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       max-height: max-content;
+//       object-fit: cover;
+//       object-position: 100%;
+//       border-radius: 24px;
+//       @media (max-width: 560px) {
+//         min-height: 380px;
+//       }
+//     }
+//   }
+// }
