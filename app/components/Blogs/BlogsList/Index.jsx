@@ -52,47 +52,16 @@ function Index() {
             }
           };
 
-          // Helper function to safely parse JSON fields
-          const parseJsonField = (field, defaultValue = { en: "", ar: "" }) => {
-            try {
-              if (!field) return defaultValue;
-              if (typeof field === 'object') return field;
-              return JSON.parse(field);
-            } catch (error) {
-              console.error('Error parsing field:', error, field);
-              return defaultValue;
-            }
-          };
-
-          // Parse all fields
-          const parsedTitle = parseJsonField(item.title, { en: "", ar: "" });
-          const parsedShortDes = parseJsonField(item.short_des, { en: "", ar: "" });
-          const parsedCategory = parseCategories(item.categories);
-          const parsedReadTime = item.readTime 
-            ? parseJsonField(item.readTime, { en: "5 min", ar: "5 min" })
-            : { en: "5 min", ar: "5 min" };
-          const parsedWrittenBy = parseJsonField(item.written_by, { en: "", ar: "" });
-          
-          // Remove body content - only display title
-          const parsedBody = [];
-
           return {
             ...item,
-            // Pass language-specific values to avoid React object rendering errors
-            title: parsedTitle[lang] || parsedTitle.en || "",
-            short_des: parsedShortDes[lang] || parsedShortDes.en || "",
-            category: parsedCategory[lang] || parsedCategory.en || "",
-            readTime: parsedReadTime[lang] || parsedReadTime.en || "",
-            written_by: parsedWrittenBy[lang] || parsedWrittenBy.en || "",
+            title: JSON.parse(item.title),
+            short_des: item.short_des ? JSON.parse(item.short_des) : { en: "", ar: "" },
+            category: parseCategories(item.categories),
+            readTime: item.readTime ? JSON.parse(item.readTime) : { en: "", ar: "" },
+            written_by: item.written_by ? JSON.parse(item.written_by) : { en: "", ar: "" },
             thumb: item.image,
             route: item.slug,
-            body: parsedBody,
-            // Keep original objects for any component that might need them
-            titleObj: parsedTitle,
-            short_desObj: parsedShortDes,
-            categoryObj: parsedCategory,
-            readTimeObj: parsedReadTime,
-            written_byObj: parsedWrittenBy,
+            body: item.body ? JSON.parse(item.body) : [],
           };
         });
         setBlogs(parsed);
