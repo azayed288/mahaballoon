@@ -293,9 +293,9 @@ const Index = () => {
       <Container>
         <Row className="align-items-center text-center text-lg-start">
           <Col xs={12} md={8} className="mb-2 mb-md-0">
-            <div className="main-title">
+            <h1 className="main-title">
               See what our Happy Customers Have to Say!
-            </div>
+            </h1>
           </Col>
           <Col xs={12} md={4}>
             <div className="sliderArrows d-flex justify-content-center justify-content-md-end">

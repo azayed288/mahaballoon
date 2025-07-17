@@ -194,9 +194,9 @@ excitement, and breathtaking beauty.`,
       <Container>
         <Row className="gy-3 mb-2">
           <Col xs={12} lg={6}>
-            <h2 className="main-title">
+            <h1 className="main-title">
               {props?.content?.extra.title?.[lang]}{" "}
-            </h2>
+            </h1>
           </Col>
           <Col xs={12} lg={6}>
             <div className="details">

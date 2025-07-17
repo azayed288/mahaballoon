@@ -38,10 +38,10 @@ export async function generateMetadata({ params }) {
         }
         
         // Debug log for parsing
-        console.log('parseJsonField - input:', field);
-        console.log('parseJsonField - parsed:', parsed);
-        console.log('parseJsonField - locale:', locale);
-        console.log('parseJsonField - result:', parsed[locale] || parsed.en);
+        // console.log('parseJsonField - input:', field);
+        // console.log('parseJsonField - parsed:', parsed);
+        // console.log('parseJsonField - locale:', locale);
+        // console.log('parseJsonField - result:', parsed[locale] || parsed.en);
         
         return parsed[locale] || parsed.en || defaultValue;
       } catch (error) {
@@ -60,18 +60,18 @@ export async function generateMetadata({ params }) {
     let ogDescription = '';
     
     // Debug: Log the raw blog data
-    console.log('Raw blog data:', JSON.stringify(blog, null, 2));
-    console.log('Raw blog.seo:', blog.seo);
-    console.log('Type of blog.seo:', typeof blog.seo);
+    // console.log('Raw blog data:', JSON.stringify(blog, null, 2));
+    // console.log('Raw blog.seo:', blog.seo);
+    // console.log('Type of blog.seo:', typeof blog.seo);
     
     try {
       const seoData = typeof blog.seo === 'string' ? JSON.parse(blog.seo) : blog.seo;
-      console.log('Parsed seoData:', JSON.stringify(seoData, null, 2));
+      // console.log('Parsed seoData:', JSON.stringify(seoData, null, 2));
       
       if (seoData) {
         // Debug: Log the individual SEO fields
-        console.log('seoData.metaTitle:', seoData.metaTitle);
-        console.log('seoData.metaDescription:', seoData.metaDescription);
+        // console.log('seoData.metaTitle:', seoData.metaTitle);
+        // console.log('seoData.metaDescription:', seoData.metaDescription);
         
         // Fix the parsing - don't double stringify if already an object
         metaTitle = parseJsonField(seoData.metaTitle, '');
@@ -83,8 +83,8 @@ export async function generateMetadata({ params }) {
       console.error('Error parsing SEO data:', seoError);
     }
 
-    console.log(metaTitle, "metaTitle hi");
-    console.log(metaDescription, "metaDescription");
+    // console.log(metaTitle, "metaTitle hi");
+    // console.log(metaDescription, "metaDescription");
 
     // Parse excerpt as fallback
     const excerpt = parseJsonField(blog.excerpt, '');
@@ -139,14 +139,7 @@ export async function generateMetadata({ params }) {
     };
   } catch (error) {
     console.error('Error generating metadata:', error);
-    // Fallback metadata if API call fails
-    return {
-      title: locale === 'ar' ? 'المدونات - رحلة منطاد الهواء الساخن في دبي | مها بالون' : 'Blogs - Dubai Hot Air Balloon Adventure | Maha Balloon',
-      description: locale === 'ar' ? 'ابق على اطلاع على أحدث المدونات من مغامرات مها بالون. تعلم النصائح والأفكار وأفضل الأوقات لرحلات منطاد الهواء الساخن في دولة الإمارات العربية المتحدة.' : 'Stay updated with the latest blogs from Maha Balloon Adventures. Learn tips, insights, and the best times for hot air balloon rides in UAE.',
-      alternates: {
-        canonical: `https://mahaballoonadventures.ae/${locale}/blog/${id}`,
-      },
-    };
+    // Fallback metadata if API call fail
   }
 }
 

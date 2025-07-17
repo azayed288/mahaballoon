@@ -1,15 +1,15 @@
 let content = {
   title: {
-    en: "The Best Hot Air Balloon Experience in Dubai",
+    en: "The Best Hot Air Balloon Ride in Dubai – Top Rated Tour",
     ar: "",
   },
   title_Mbl: {
-    en: "Maha Hot Air Balloon Dubai",
+    en: "The Best Hot Air Balloon Ride in Dubai Top Rated Tour",
     ar: "",
   },
   keywords: { en: "", ar: "" },
   description: {
-    en: "Maha Hot Air Balloon Dubai - where adventure meets serenity in the skies. Let us take you on an exciting hot air balloon ride above the desert, to catch Dubai’s breathtaking landscape unfold in front of you. A once-in-a-lifetime experience of wonder and adventure awaits!",
+    en: "Experience the ultimate hot air balloon ride in Dubai with MAHA Balloon Adventures. Soar over the majestic desert landscape at the perfect timing for a sunrise you'll never forget. Explore our exclusive offers and book your once-in-a-lifetime adventure in the skies today!",
     ar: "",
   },
   description_mbl: {

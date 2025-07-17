@@ -92,7 +92,7 @@ function Index({ cardData, title }) {
         {/* <div className="tag-line mb-3">Plans</div> */}
         <Row>
           <Col md={12} lg={9}>
-            <div className="main-title mb-3">{title?.en}</div>
+            <h1 className="main-title mb-3">{title?.en}</h1>
           </Col>
           <Col className="sliderArrows" md={12} lg={3}>
             <div className="sliderArrows slider_pd-end2">

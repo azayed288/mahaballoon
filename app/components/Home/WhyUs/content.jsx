@@ -1,8 +1,8 @@
 let content = {
-  subtitle: { en: "Why Choose The Best Hot Air Balloon Ride Dubai ", ar: "" },
+  subtitle: { en: "Why Choose MAHA Balloon Adventures ", ar: "" },
   title: { en: "Trusted Hot Air Balloon Operator in UAE", ar: "" },
   details: {
-    en: "Maha Hot Air Balloons offers a smooth and memorable flight with an unforgettable experience. Every flight with us is made extraordinary by our licensed pilots and well-trained team.  From starting the hot air balloon ride until landing gently, our main priorities are to keep you safe and comfortable. Choose us for a unique journey led by the best hot air balloon company in the country.",
+    en: "As the most trusted UAE balloon operator, MAHA Hot Air Balloons offers a smooth and memorable hot air balloon ride in Dubai. Your safety and enjoyment are our main priorities, ensured by our licensed pilots and well-trained team. We manage every detail, from selecting the perfect timing for sunrise views to a gentle landing. Explore our exclusive offers to book your unforgettable flight.",
     ar: "",
   },
 };

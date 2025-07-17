@@ -151,6 +151,53 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+
+        {/* LocalBusiness Schema.org JSON-LD */}
+        <Script
+          id="localbusiness-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "MAHA Balloon Adventures",
+                "image": "https://d3nt41cjjw3im8.cloudfront.net/assets/mahaNav.png",
+                "@id": "",
+                "url": "https://mahaballoonadventures.ae/",
+                "telephone": "0504179392",
+                "priceRange": "AED 1200",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Suite 101-106, 1st Floor, Building 52A, Street 26B, P.O Box: 60315, Al Rigga Road, Deira",
+                  "addressLocality": "Dubai",
+                  "postalCode": "60315",
+                  "addressCountry": "AE"
+                },
+                "openingHoursSpecification": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ],
+                  "opens": "00:00",
+                  "closes": "23:59"
+                },
+                "sameAs": [
+                  "https://www.facebook.com/mahaballoonadventures/",
+                  "https://www.instagram.com/mahaballoonadventures/",
+                  "https://www.youtube.com/@mahahotairballoons"
+                ]
+              }
+            `,
+          }}
+        />
       </head>
       <body>
         {/* Google Tag Manager (noscript) */}
