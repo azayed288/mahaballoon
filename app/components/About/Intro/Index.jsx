@@ -10,9 +10,9 @@ import "./styles.scss";
 const brand1 =
   "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/tripadvisor.png";
 const brand2 =
-  "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/makemytrip_logo.png";
+  "/assets/Homepage/google.png";
 const brand3 =
-  "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/bookingcom_logo.png";
+  "/assets/Homepage/getyourguide.png";
 const brand4 =
   "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/viator_logo.png";
 const thumb = "https://d3nt41cjjw3im8.cloudfront.net/whychooseus.png";

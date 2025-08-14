@@ -18,9 +18,9 @@ const roboto = Roboto({
 
 export async function generateMetadata() {
   return {
-    title: "Maha Hot Air Balloons | Certified Hot Air Balloon Ride in UAE",
+    title: "Maha Balloon Adventures | Certified Hot Air Balloon Ride in UAE",
     description:
-      "Experience stunning views of the desert and create unforgettable memories with our expert-guided aerial adventures. Book your hot air balloon Dubai today!",
+      "Experience the magic of a certified hot air balloon ride with Maha Balloon Adventures in Dubai, UAE. Safe, scenic, and unforgettable sunrise flights over the desert.",
   };
 }
 
@@ -152,6 +152,8 @@ export default function RootLayout({ children }) {
           }}
         />
 
+        {/* Claspo Script */}
+
         {/* LocalBusiness Schema.org JSON-LD */}
         <Script
           id="localbusiness-schema"
@@ -226,6 +228,29 @@ export default function RootLayout({ children }) {
         <Providers>
           <LanguageProvider>{children}</LanguageProvider>
         </Providers>
+        <Script
+          id="claspo-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function (t, e, c, n) {
+                  var s = e.createElement(c);
+                  s.async = 1, s.src = 'https://scripts.claspo.io/scripts/' + n + '.js';
+                  var r = e.scripts[0];
+                  r.parentNode.insertBefore(s, r);
+                  var f = function () {
+                      f.c(arguments);
+                  };
+                  f.q = [];
+                  f.c = function () {
+                      f.q.push(arguments);
+                  };
+                  t['claspo'] = t['claspo'] || f;
+              }(window, document, 'script', '63425C1210DB40FC827062C1FDA91AD0');
+              claspo('init');
+            `,
+          }}
+        />
       </body>
     </html>
   );

@@ -30,15 +30,15 @@ function Index() {
                 <div className="details">
                   {pathname?.includes("b2b") ? (
                     <p>
-                      © 2024 Made in UAE with ❤️ By Prism digital:{" "}
-                      <a href="https://www.prism-me.com/" target="__blank">
+                      Copyright © 2025 Maha Balloon Adventures, a part of Abdulla Bin Zayed Investment Group. All Rights Reserved{" "}
+                      {/* <a href="https://www.prism-me.com/" target="__blank">
                         Digital Marketing Agency Dubai
-                      </a>
+                      </a> */}
                       .
                     </p>
                   ) : (
                     <p>
-                      © 2024 Made in UAE with ❤️ By Prism Digital:{" "}
+                      Copyright © 2025 Maha Balloon Adventures, a part of Abdulla Bin Zayed Investment Group. All Rights Reserved{" "}
                       <a href="https://www.prism-me.com/" target="__blank">
                         Website Design Dubai
                       </a>

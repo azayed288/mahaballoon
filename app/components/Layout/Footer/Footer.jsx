@@ -466,7 +466,7 @@ These include routine maintenance of the equipment, the training of pilots, and 
                       dangerouslySetInnerHTML={{
                         __html:
                           contentFooter[
-                            `${currenPath?.[currenPath?.length - 1]}`
+                          `${currenPath?.[currenPath?.length - 1]}`
                           ],
                       }}
                     ></div>
@@ -486,11 +486,11 @@ These include routine maintenance of the equipment, the training of pilots, and 
             <div className="details">
               <p>
                 {locale == "ar"
-                  ? "© 2024 تم التصميم مع 💕in UAE بواسطة Prism Digital"
-                  : "© 2024 Designed with 💕in UAE by Prism Digital:"}{" "}
-                <a href="https://www.prism-me.com/" target="__blank">
+                  ? "جميع الحقوق محفوظة © 2025 لشركة مها بالون ادفنتشر، إحدى شركات مجموعة عبدالله بن زايد الاستثمارية."
+                  : "Copyright © 2025 Maha Balloon Adventures, a part of Abdulla Bin Zayed Investment Group. All Rights Reserved"}{" "}
+                {/* <a href="https://www.prism-me.com/" target="__blank">
                   Digital Marketing Agency Dubai
-                </a>
+                </a> */}
                 .
               </p>
               <Link href={`/${locale}/privacy-policy`}>Privacy Policy</Link>
@@ -537,14 +537,14 @@ These include routine maintenance of the equipment, the training of pilots, and 
             <Link href={`/${locale}/terms-of-service`}>Terms of Service</Link>
             <p>
               {locale == "ar"
-                ? "© 2024 تم التصميم مع 💕in UAE بواسطة Prism Digital"
-                : "© 2024 Designed with 💕in UAE by Prism Digital:"}
+                ? "جميع الحقوق محفوظة © 2025 لشركة مها بالون ادفنتشر، إحدى شركات مجموعة عبدالله بن زايد الاستثمارية."
+                : "Copyright © 2025 Maha Balloon Adventures, a part of Abdulla Bin Zayed Investment Group. All Rights Reserved"}
               :{" "}
-              <a href="https://www.prism-me.com/" target="__blank">
+              {/* <a href="https://www.prism-me.com/" target="__blank">
                 {locale == "ar"
                   ? "وكالة التسويق الرقمي دبي"
                   : "Digital Marketing Agency Dubai"}
-              </a>
+              </a> */}
               .
             </p>
           </div>
