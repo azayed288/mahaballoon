@@ -7,9 +7,9 @@ import Slider from "react-slick";
 const part1 =
   "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/tripadvisor.png";
 const part2 =
-  "/assets/Homepage/google.png";
+  "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/makemytrip_logo.png";
 const part3 =
-  "/assets/Homepage/getyourguide.png"; // Correct path for public/asset/homepage/1.jpg
+  "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/bookingcom_logo.png";
 const part4 =
   "https://d3nt41cjjw3im8.cloudfront.net/assets/HomePage/viator_logo.png";
 const whyUs =
