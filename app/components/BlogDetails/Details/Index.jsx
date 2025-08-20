@@ -68,7 +68,7 @@ function Index({ blog }) {
           .filter(name => name !== '') // Remove empty names
           .join(', '); // Join with comma and space
         
-        console.log('BlogDetails - Final category names:', categoryNames);
+        // console.log('BlogDetails - Final category names:', categoryNames);
         return categoryNames || (lang === 'ar' ? 'فئة' : 'Category');
       }
       
@@ -83,7 +83,7 @@ function Index({ blog }) {
   const writtenBy = parseJsonField(blog?.written_by, '');
   const excerpt = parseJsonField(blog?.excerpt, '');
   const category = parseCategories(blog?.categories);
-  console.log('BlogDetails - Final parsed category:', category);
+  // console.log('BlogDetails - Final parsed category:', category);
   // console.log(category[0], "test");
   // Handle content field - it contains HTML content
   const content = parseJsonField(blog?.content, '');
