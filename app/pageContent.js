@@ -13,6 +13,7 @@ import Testimonial from "./components/Common/Testimonial/Index";
 import FaqsComm from "./components/Common/Faqs/Index";
 import BlogsComm from "./components/Common/Blogs/Index";
 //
+// import BlogListData from "./Db/blogs";
 import HomeContent from "./Db/Home";
 
 function PageContent() {
@@ -27,6 +28,10 @@ function PageContent() {
   });
 
   // blogs are fetched inside BlogsComm
+  // useEffect(() => {
+  //   let UpdatedBlog = BlogListData?.filter((item) => item?.page == "home");
+  //   setBlogsData(UpdatedBlog);
+  // }, []);
 
   return (
     <>
