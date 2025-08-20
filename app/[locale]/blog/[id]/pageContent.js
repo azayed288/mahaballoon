@@ -13,7 +13,7 @@ import Loader from "../../../components/Common/Loader/Loader";
 const banner =
   "https://d3nt41cjjw3im8.cloudfront.net/assets/Banner/Blog%20Inner%20banner.webp";
 
-const PageContent = () => {
+const PageContent = ({ initialData }) => {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
@@ -22,7 +22,7 @@ const PageContent = () => {
   });
 
   const [FormModalShow, setFormModalShow] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!initialData);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -35,14 +35,14 @@ const PageContent = () => {
   const pathname = usePathname();
   const lang = pathname.split("/")[1];
   const slug = params?.id;
-  const [blogData, setBlogData] = useState(null);
+  const [blogData, setBlogData] = useState(initialData || null);
 
   useEffect(() => {
-    if (!slug) return;
-    
+    if (!slug || initialData) return;
+
     setIsLoading(true);
     setError(null);
-    
+
     fetch(`https://oqnfmp6966.execute-api.us-east-1.amazonaws.com/dev/api/blog/slug/${slug}`)
       .then((res) => {
         if (!res.ok) {
@@ -51,7 +51,6 @@ const PageContent = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data, "blogData in pageContent");
         setBlogData(data);
         setIsLoading(false);
       })
@@ -61,7 +60,7 @@ const PageContent = () => {
         setBlogData(null);
         setIsLoading(false);
       });
-  }, [slug]);
+  }, [slug, initialData]);
 
   if (isLoading) {
     return <Loader />;
@@ -95,7 +94,7 @@ const PageContent = () => {
         path={lang === 'ar' ? 'الرئيسية - المدونات' : 'Home - Blogs'} 
         bg={banner} 
       />
-      <BlogDetails blog={blogData.blog} />
+      <BlogDetails blog={blogData.blog} lang={lang} />
       <BlogsRelated blog={blogData.relatedBlogs} />
       <GiftOffer />
       <FaqsComm />
