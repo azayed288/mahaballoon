@@ -363,10 +363,10 @@ function Footer() {
                     <li>
                       <a
                         className="info"
-                        href="https://wa.me/971502600101"
+                        href="https://api.whatsapp.com/send/?phone=971504209377&text=+Hi+There%2C+++I+am+interested+in+Gift.+Please+get+in+touch+with+me+to+send+me+a+customized+quote.&type=phone_number&app_absent=0"
                         target="__blank"
                       >
-                        +971502600101
+                        +971504209377
                       </a>
                     </li>
                     <a

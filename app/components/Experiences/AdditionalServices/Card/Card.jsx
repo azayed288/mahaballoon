@@ -44,13 +44,14 @@ function Card(
         <div className="tag-line mt-2">{price?.[lang]}</div>
         <p className="para mt-2">{detail?.[lang]}</p>
       </div>
-      <ReactWhatsapp
+      <a
+        href="https://api.whatsapp.com/send/?phone=971504209377&text=+Hi+There%2C+++I+am+interested+in+Gift.+Please+get+in+touch+with+me+to+send+me+a+customized+quote.&type=phone_number&app_absent=0"
         className="Wtp btnNl btnNl-primary mt-2"
-        number={whatsappNo}
-        message={` Hi There,   I am interested in the  ${title?.[lang]} Service. Please get in touch with me to send me a quote.`}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {lang == "ar" ? "اتصل بنا" : "Contact us"}
-      </ReactWhatsapp>
+      </a>
       {/* <button className={`btnNl btnNl-primary mt-2`}>Contact us</button> */}
       {/* <button
         onClick={() => {

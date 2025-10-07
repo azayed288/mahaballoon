@@ -104,21 +104,19 @@ function Card(props) {
         </div> */}
 
         <div className="w-100">
-          <ReactWhatsapp
+          <a
+            href="https://api.whatsapp.com/send/?phone=971504209377&text=+Hi+There%2C+++I+am+interested+in+Gift.+Please+get+in+touch+with+me+to+send+me+a+customized+quote.&type=phone_number&app_absent=0"
             className="Wtp"
-            number={whatsappNo}
-            message={` Hi There,   I am interested in the  ${title} package. Please get in touch with me to send me a customized quote.`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <button
               className="btnNl btnNl-primary pds mrs mt-3"
               accordion
-              onClick={() => {
-                // dispatch(setBooking(true));
-              }}
             >
               {lang == "ar" ? "احصل على عرض أسعار" : "Get a Quote"}
             </button>
-          </ReactWhatsapp>
+          </a>
           <button
             onClick={() => {
               if (active == id) {

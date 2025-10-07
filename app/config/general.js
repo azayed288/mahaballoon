@@ -1,1 +1,1 @@
-export let whatsappNo = "+971502600101";
+export let whatsappNo = "971504209377";

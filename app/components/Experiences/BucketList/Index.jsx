@@ -39,7 +39,7 @@ function Index() {
                   Book Now
                 </button>
                 <a
-                  href={`https://wa.me/${whatsappNo}`}
+                  href="https://api.whatsapp.com/send/?phone=971504209377&text=+Hi+There%2C+++I+am+interested+in+Gift.+Please+get+in+touch+with+me+to+send+me+a+customized+quote.&type=phone_number&app_absent=0"
                   target={"_blank"}
                   rel="noopener noreferrer"
                 >
