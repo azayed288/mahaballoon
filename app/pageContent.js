@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { usePathname } from "next/navigation";
 import { useInView } from "react-intersection-observer";
 import Banner from "./components/Home/Banner/Banner";
@@ -19,7 +19,6 @@ import HomeContent from "./Db/Home";
 function PageContent() {
   const pathname = usePathname();
   const lang = pathname.split("/")[1];
-  const [BlogsData, setBlogsData] = useState([]);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -28,6 +27,7 @@ function PageContent() {
     delay: 3000,
   });
 
+  // blogs are fetched inside BlogsComm
   // useEffect(() => {
   //   let UpdatedBlog = BlogListData?.filter((item) => item?.page == "home");
   //   setBlogsData(UpdatedBlog);
@@ -53,7 +53,6 @@ function PageContent() {
         />
         <BlogsComm
           lang={lang}
-          blogData={BlogsData}
           subTitle={
             lang == "ar"
               ? "مرشدون سياحيون حول الأشياء التي يجب القيام بها في دبي، الإمارات العربية المتحدة"

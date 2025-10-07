@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { AiOutlineLink } from "react-icons/ai";
@@ -6,7 +7,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa6";
 import Head from "next/head";
 import Loader from "../../Common/Loader/Loader";
-import { useParams, usePathname } from "next/navigation";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -15,10 +15,8 @@ import {
 import { toast } from "react-toastify";
 import "./styles.scss";
 
-function Index({ blog }) {
-  const { id } = useParams();
-  const pathname = usePathname();
-  const lang = pathname.split("/")[1];
+function Index({ blog, lang }) {
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const [isLoading, setIsLoading] = useState(false);
 
   // console.log(blog?.seo, "test");
@@ -314,7 +312,9 @@ function Index({ blog }) {
                   <div
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      navigator.clipboard.writeText(window.location.href);
+                      if (typeof window !== 'undefined' && navigator?.clipboard) {
+                        navigator.clipboard.writeText(window.location.href);
+                      }
                       toast.info(
                         lang === 'ar' ? "تم نسخ الرابط" : "Link Copied to Clipboard",
                         {
@@ -329,17 +329,17 @@ function Index({ blog }) {
                     </div>
                   </div>
                   <LinkedinShareButton
-                    url={window.location.href}
+                    url={currentUrl}
                     title={title}
                     summary={excerpt || title}
-                    source={window.location.href}
+                    source={currentUrl}
                   >
                     <div className="social-item">
                       <FaLinkedin size={20} />
                     </div>
                   </LinkedinShareButton>
                   <TwitterShareButton
-                    url={window.location.href}
+                    url={currentUrl}
                     title={title}
                     hashtag="#MahaHotAirBalloons"
                   >
@@ -348,7 +348,7 @@ function Index({ blog }) {
                     </div>
                   </TwitterShareButton>
                   <FacebookShareButton
-                    url={window.location.href}
+                    url={currentUrl}
                     hashtag="#MahaHotAirBalloons"
                   >
                     <div className="social-item">

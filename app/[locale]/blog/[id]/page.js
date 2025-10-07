@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import PageContent from "./pageContent";
+import BlogDetails from "./pageContent";
 
 export async function generateMetadata({ params }) {
   const { id, locale } = params;
@@ -143,8 +143,8 @@ export async function generateMetadata({ params }) {
   }
 }
 
-const BlogInner = ({ params }) => {
-  const { locale } = params;
+const BlogInner = async ({ params }) => {
+  const { locale, id } = params;
   // Define allowed locales
   const allowedLocales = ["en", "ar"];
 
@@ -152,7 +152,17 @@ const BlogInner = ({ params }) => {
   if (!allowedLocales.includes(locale)) {
     notFound();
   }
-  return <PageContent />;
+
+  // Server-side fetch of blog for SSR output
+  let blogData = null;
+  try {
+    const res = await fetch(`https://oqnfmp6966.execute-api.us-east-1.amazonaws.com/dev/api/blog/slug/${id}`, { cache: 'no-store' });
+    if (res.ok) {
+      blogData = await res.json();
+    }
+  } catch (e) {}
+
+  return <BlogDetails initialData={blogData} />;
 };
 
 export default BlogInner;
