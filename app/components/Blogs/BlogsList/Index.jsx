@@ -77,7 +77,14 @@ function Index() {
             {blogs.map((item, i) => (
               <Col xs={12} md={6} lg={4} key={"blogsList" + i}>
                 <BlogCard
-                  {...item}
+                  title={item.title}
+                  short_des={item.short_des}
+                  category={item.category}
+                  readTime={item.readTime}
+                  written_by={item.written_by}
+                  thumb={item.thumb}
+                  route={item.route}
+                  body={item.body}
                   lang={lang}
                   // Pass slug for blogdetails page
                   blogdetailsSlug={item.slug}

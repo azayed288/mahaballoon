@@ -17,9 +17,17 @@ function Card(props) {
     try {
       if (!field) return defaultValue;
       if (typeof field === 'object') return field[currentLang] || field.en || defaultValue;
-      const parsed = JSON.parse(field);
-      return parsed[currentLang] || parsed.en || defaultValue;
+      if (typeof field === 'string') {
+        try {
+          const parsed = JSON.parse(field);
+          return parsed[currentLang] || parsed.en || defaultValue;
+        } catch (e) {
+          return field || defaultValue;
+        }
+      }
+      return String(field) || defaultValue;
     } catch (error) {
+      console.error('Error parsing field:', error);
       return defaultValue;
     }
   };
@@ -65,25 +73,59 @@ function Card(props) {
   
   // Use the already parsed category data from parent component
   const getCategoryDisplay = () => {
-    if (!category) return currentLang === 'ar' ? 'فئة' : 'Category';
-    
-    // If category is already parsed as an object with en/ar keys
-    if (typeof category === 'object' && category[currentLang]) {
-      return category[currentLang] || category.en || (currentLang === 'ar' ? 'فئة' : 'Category');
+    try {
+      if (!category) return currentLang === 'ar' ? 'فئة' : 'Category';
+      
+      // If category is already parsed as an object with en/ar keys
+      if (typeof category === 'object') {
+        // Make sure we're returning a string, not an object
+        const categoryValue = category[currentLang] || category.en || (currentLang === 'ar' ? 'فئة' : 'Category');
+        return typeof categoryValue === 'string' ? categoryValue : (currentLang === 'ar' ? 'فئة' : 'Category');
+      }
+      
+      // If it's a string, use it directly
+      if (typeof category === 'string') {
+        return category;
+      }
+      
+      // Fallback for any other format
+      return currentLang === 'ar' ? 'فئة' : 'Category';
+    } catch (error) {
+      console.error('Error in getCategoryDisplay:', error);
+      return currentLang === 'ar' ? 'فئة' : 'Category';
     }
-    
-    // Fallback for any other format
-    return category || (currentLang === 'ar' ? 'فئة' : 'Category');
   };
   
   const parsedCategory = getCategoryDisplay();
 
   // Parse body and get the first paragraph for the current language
   let firstBodyParagraph = "";
-  if (props.body && Array.isArray(props.body) && props.body[0]?.content) {
-    const content = props.body[0].content[currentLang] || "";
-    // Get only the first paragraph (split by \n or .)
-    firstBodyParagraph = content.split("\n")[0].split(".")[0] + (content.includes(".") ? "." : "");
+  if (props.body) {
+    try {
+      let body = props.body;
+      
+      // Parse body if it's a string
+      if (typeof body === 'string') {
+        try {
+          body = JSON.parse(body);
+        } catch (e) {
+          // If can't parse, use as is
+          firstBodyParagraph = body;
+          body = null;
+        }
+      }
+      
+      // If we have a parsed body array
+      if (Array.isArray(body) && body.length > 0 && body[0]?.content) {
+        const content = body[0].content[currentLang] || body[0].content.en || "";
+        if (typeof content === 'string') {
+          // Get only the first paragraph (split by \n or .)
+          firstBodyParagraph = content.split("\n")[0].split(".")[0] + (content.includes(".") ? "." : "");
+        }
+      }
+    } catch (error) {
+      console.error('Error parsing body:', error);
+    }
   }
 
   return (

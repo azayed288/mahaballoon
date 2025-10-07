@@ -16,9 +16,17 @@ function Card(props) {
     try {
       if (!field) return defaultValue;
       if (typeof field === 'object') return field[currentLang] || field.en || defaultValue;
-      const parsed = JSON.parse(field);
-      return parsed[currentLang] || parsed.en || defaultValue;
+      if (typeof field === 'string') {
+        try {
+          const parsed = JSON.parse(field);
+          return parsed[currentLang] || parsed.en || defaultValue;
+        } catch (e) {
+          return field || defaultValue;
+        }
+      }
+      return String(field) || defaultValue;
     } catch (error) {
+      console.error('Error parsing field:', error);
       return defaultValue;
     }
   };
@@ -28,32 +36,41 @@ function Card(props) {
   
   // Handle both already parsed category data and raw category data
   const getCategoryDisplay = () => {
-    // Check if category is passed as parsed data from parent
-    if (props.category && typeof props.category === 'object') {
-      return props.category[currentLang] || props.category.en || (currentLang === 'ar' ? 'فئة' : 'Category');
-    }
-    
-    // Fallback to parsing categories field if needed
-    if (props.categories) {
-      try {
-        let categories;
-        if (typeof props.categories === 'string') {
-          categories = JSON.parse(props.categories);
-        } else {
-          categories = props.categories;
-        }
-        
-        if (Array.isArray(categories) && categories.length > 0) {
-          const categoryNames = categories
-            .map(category => category?.name?.[currentLang] || category?.name?.en || '')
-            .filter(name => name !== '')
-            .join(', ');
-          
-          return categoryNames || (currentLang === 'ar' ? 'فئة' : 'Category');
-        }
-      } catch (error) {
-        console.error('Error parsing categories:', error);
+    try {
+      // Check if category is passed as parsed data from parent
+      if (props.category && typeof props.category === 'object') {
+        // Make sure we're returning a string, not an object
+        const categoryValue = props.category[currentLang] || props.category.en || (currentLang === 'ar' ? 'فئة' : 'Category');
+        return typeof categoryValue === 'string' ? categoryValue : (currentLang === 'ar' ? 'فئة' : 'Category');
       }
+      
+      // Fallback to parsing categories field if needed
+      if (props.categories) {
+        try {
+          let categories;
+          if (typeof props.categories === 'string') {
+            categories = JSON.parse(props.categories);
+          } else {
+            categories = props.categories;
+          }
+          
+          if (Array.isArray(categories) && categories.length > 0) {
+            const categoryNames = categories
+              .map(category => {
+                const name = category?.name?.[currentLang] || category?.name?.en || '';
+                return typeof name === 'string' ? name : '';
+              })
+              .filter(name => name !== '')
+              .join(', ');
+            
+            return categoryNames || (currentLang === 'ar' ? 'فئة' : 'Category');
+          }
+        } catch (error) {
+          console.error('Error parsing categories:', error);
+        }
+      }
+    } catch (error) {
+      console.error('Error in getCategoryDisplay:', error);
     }
     
     return currentLang === 'ar' ? 'فئة' : 'Category';
@@ -68,10 +85,32 @@ function Card(props) {
 
   // Parse body and get the first paragraph for the current language
   let firstBodyParagraph = parsedShortDes;
-  if (!firstBodyParagraph && props.body && Array.isArray(props.body) && props.body[0]?.content) {
-    const content = props.body[0].content[currentLang] || "";
-    // Get only the first paragraph (split by \n or .)
-    firstBodyParagraph = content.split("\n")[0].split(".")[0] + (content.includes(".") ? "." : "");
+  if (!firstBodyParagraph && props.body) {
+    try {
+      let body = props.body;
+      
+      // Parse body if it's a string
+      if (typeof body === 'string') {
+        try {
+          body = JSON.parse(body);
+        } catch (e) {
+          // If can't parse, use as is
+          firstBodyParagraph = body;
+          body = null;
+        }
+      }
+      
+      // If we have a parsed body array
+      if (Array.isArray(body) && body.length > 0 && body[0]?.content) {
+        const content = body[0].content[currentLang] || body[0].content.en || "";
+        if (typeof content === 'string') {
+          // Get only the first paragraph (split by \n or .)
+          firstBodyParagraph = content.split("\n")[0].split(".")[0] + (content.includes(".") ? "." : "");
+        }
+      }
+    } catch (error) {
+      console.error('Error parsing body:', error);
+    }
   }
 
   return (

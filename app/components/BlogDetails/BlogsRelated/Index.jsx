@@ -179,9 +179,15 @@ function Index({ blog }) {
           <Slider ref={sliderRef} {...settings}>
             {relatedBlogs?.map((item, i) => (
               <Card
-                {...item}
-                lang={lang}
+                title={item.title}
+                excerpt={item.excerpt}
+                written_by={item.written_by}
+                content={item.content}
+                thumb={item.thumb}
+                category={item.category}
+                readTime={item.readTime}
                 route={item.slug || item.route}
+                lang={lang}
                 slider={true}
                 key={i}
               />
